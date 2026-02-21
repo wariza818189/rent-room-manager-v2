@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>🏠 Rent Room Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loadingScreen">
+    <div style="font-size:48px;margin-bottom:16px">🏠</div>
+    <div>Loading your data...</div>
+  </div>
+
+  <!-- Main App -->
+  <div id="mainApp" style="display:none">
+
+    <!-- Header -->
+    <div class="header">
+      <div>
+        <div class="header-title">🏠 RENT ROOM MANAGER</div>
+        <div class="header-sub">Saved on this device 📱</div>
+      </div>
+      <div class="header-right">
+        <button id="backBtn" class="btn btn-gray" style="display:none" onclick="app.goBack()">← Back</button>
+      </div>
+    </div>
+
+    <!-- Dynamic Content -->
+    <div id="content"></div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

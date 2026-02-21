@@ -1,0 +1,310 @@
+/* ===== RESET & BASE ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: Georgia, serif;
+  min-height: 100vh;
+}
+
+/* ===== LOADING SCREEN ===== */
+#loadingScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #0f172a;
+  color: #94a3b8;
+  font-size: 18px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(135deg, #1e3a5f, #0f172a);
+  border-bottom: 2px solid #f59e0b;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f59e0b;
+}
+
+.header-sub {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.header-right {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ===== CONTENT AREA ===== */
+#content {
+  padding: 16px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===== SUMMARY CARDS ===== */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.summary-card {
+  background: #1e293b;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.s-icon { font-size: 18px; }
+.s-val  { font-size: 20px; font-weight: bold; margin-top: 2px; }
+.s-label { font-size: 11px; color: #64748b; margin-top: 2px; }
+
+/* ===== TOOLBAR ===== */
+.toolbar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  align-items: center;
+}
+
+/* ===== ROOM GRID ===== */
+.room-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 400px) {
+  .room-grid { grid-template-columns: 1fr; }
+}
+
+.room-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 14px;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.room-card:active {
+  border-color: #f59e0b;
+}
+
+/* ===== FORM CARD ===== */
+.card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: bold;
+  color: #f59e0b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 14px 0 8px;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field label {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* ===== INPUTS ===== */
+.inp {
+  width: 100%;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 7px;
+  color: #e2e8f0;
+  padding: 9px 11px;
+  font-size: 13px;
+  font-family: Georgia, serif;
+  outline: none;
+}
+
+textarea.inp {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.inp:focus {
+  border-color: #f59e0b;
+}
+
+/* ===== AUTO CALCULATED FIELD ===== */
+.auto-field {
+  width: 100%;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 7px;
+  color: #f59e0b;
+  padding: 9px 11px;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: Georgia, serif;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.auto-field span {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: normal;
+}
+
+/* ===== INFO GRID (DETAIL VIEW) ===== */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.info-card {
+  background: #0f172a;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.info-label {
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 3px;
+}
+
+.info-val {
+  font-size: 13px;
+  color: #e2e8f0;
+}
+
+/* ===== TOTAL BOX ===== */
+.total-box {
+  margin-top: 16px;
+  background: #0f172a;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #f59e0b;
+}
+
+.total-label {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.total-val {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f59e0b;
+}
+
+/* ===== NOTES BOX ===== */
+.notes-box {
+  margin-top: 12px;
+  background: #172033;
+  border-radius: 8px;
+  padding: 12px;
+  border-left: 3px solid #f59e0b;
+}
+
+.notes-box-label {
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.notes-box-text {
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+/* ===== STATUS BADGES ===== */
+.badge {
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 9px 14px;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.btn-gold  { background: #f59e0b; color: #0f172a; }
+.btn-gray  { background: #334155; color: #e2e8f0; }
+.btn-blue  { background: #3b82f6; color: #ffffff; }
+.btn-red   { background: #ef4444; color: #ffffff; }
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+  text-align: center;
+  color: #475569;
+  padding: 60px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}

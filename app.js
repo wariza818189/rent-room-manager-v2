@@ -135,7 +135,7 @@ function renderDashboard(el) {
       </div>
       <div class="summary-card" style="border-left:4px solid #f59e0b">
         <div class="s-icon">💰</div>
-        <div class="s-val" style="color:#f59e0b">฿${totalRent.toLocaleString()}</div>
+        <div class="s-val" style="color:#f59e0b">₱${totalRent.toLocaleString()}</div>
         <div class="s-label">Rent / mo</div>
       </div>
     </div>
@@ -178,7 +178,7 @@ function renderDashboard(el) {
                           display:flex;justify-content:space-between;align-items:center">
                 <span style="font-size:12px;color:#64748b">Total Due</span>
                 <span style="font-size:15px;font-weight:bold;color:#f59e0b">
-                  ฿${parseFloat(calcTotal(r)).toLocaleString()}
+                  ₱${parseFloat(calcTotal(r)).toLocaleString()}
                 </span>
               </div>
             </div>
@@ -240,7 +240,7 @@ function renderForm(el) {
             onchange="app.update('moveInDate', this.value)" />
         </div>
         <div class="field">
-          <label>Deposit (฿)</label>
+          <label>Deposit (₱)</label>
           <input class="inp" placeholder="0.00" value="${r.deposit}"
             oninput="app.update('deposit', this.value)" />
         </div>
@@ -250,12 +250,12 @@ function renderForm(el) {
       <div class="section-title">💰 Rent & Fees</div>
       <div class="row2">
         <div class="field">
-          <label>Monthly Rent (฿)</label>
+          <label>Monthly Rent (₱)</label>
           <input class="inp" placeholder="0.00" value="${r.monthlyRent}"
             oninput="app.update('monthlyRent', this.value)" />
         </div>
         <div class="field">
-          <label>Water Amount (฿)</label>
+          <label>Water Amount (₱)</label>
           <input class="inp" placeholder="0.00" value="${r.waterAmount}"
             oninput="app.update('waterAmount', this.value)" />
         </div>
@@ -267,7 +267,7 @@ function renderForm(el) {
             oninput="app.update('otherLabel', this.value)" />
         </div>
         <div class="field">
-          <label>Other Fee (฿)</label>
+          <label>Other Fee (₱)</label>
           <input class="inp" placeholder="0.00" value="${r.otherFees}"
             oninput="app.update('otherFees', this.value)" />
         </div>
@@ -289,14 +289,14 @@ function renderForm(el) {
       </div>
       <div class="row2">
         <div class="field">
-          <label>Rate per Unit (฿)</label>
+          <label>Rate per Unit (₱)</label>
           <input class="inp" placeholder="5" value="${r.electricRate}"
             oninput="app.update('electricRate', this.value)" />
         </div>
         <div class="field">
           <label>Electric Cost (Auto)</label>
           <div class="auto-field" id="elecDisplay">
-            ฿${elec} <span>(${units} units)</span>
+            ₱${elec} <span>(${units} units)</span>
           </div>
         </div>
       </div>
@@ -315,7 +315,7 @@ function renderForm(el) {
         <div class="field">
           <label>Total This Month</label>
           <div class="auto-field" id="totalDisplay" style="font-size:17px">
-            ฿${parseFloat(total).toLocaleString()}
+            ₱${parseFloat(total).toLocaleString()}
           </div>
         </div>
       </div>
@@ -365,18 +365,18 @@ function renderDetail(el) {
         ${ic("📞 Phone",        r.phone || "-")}
         ${ic("📅 Move-in",      r.moveInDate || "-")}
         ${ic("📅 Due Day",      "Day " + r.dueDay + " of month")}
-        ${ic("💎 Deposit",      "฿" + parseFloat(r.deposit  || 0).toLocaleString())}
-        ${ic("🏠 Monthly Rent", "฿" + parseFloat(r.monthlyRent || 0).toLocaleString())}
-        ${ic("💧 Water",        "฿" + parseFloat(r.waterAmount || 0).toLocaleString())}
+        ${ic("💎 Deposit",      "₱" + parseFloat(r.deposit  || 0).toLocaleString())}
+        ${ic("🏠 Monthly Rent", "₱" + parseFloat(r.monthlyRent || 0).toLocaleString())}
+        ${ic("💧 Water",        "₱" + parseFloat(r.waterAmount || 0).toLocaleString())}
         ${ic("⚡ Meter",        (r.electricPrev||0) + " → " + (r.electricCurr||0) + " (" + units + " units)")}
-        ${ic("⚡ Elec Cost",    "฿" + parseFloat(elec).toLocaleString() + " @ ฿" + r.electricRate + "/unit")}
-        ${r.otherFees ? ic("📦 " + (r.otherLabel || "Other"), "฿" + parseFloat(r.otherFees).toLocaleString()) : ""}
+        ${ic("⚡ Elec Cost",    "₱" + parseFloat(elec).toLocaleString() + " @ ₱" + r.electricRate + "/unit")}
+        ${r.otherFees ? ic("📦 " + (r.otherLabel || "Other"), "₱" + parseFloat(r.otherFees).toLocaleString()) : ""}
         ${ic("🕐 Updated",      r.lastUpdated || "-")}
       </div>
 
       <div class="total-box">
         <span class="total-label">💰 Total Due This Month</span>
-        <span class="total-val">฿${parseFloat(total).toLocaleString()}</span>
+        <span class="total-val">₱${parseFloat(total).toLocaleString()}</span>
       </div>
 
       ${r.notes ? `
@@ -441,14 +441,14 @@ const app = {
     if (elecEl) {
       const elec  = calcElectric(editingRoom);
       const units = calcUnits(editingRoom.electricPrev, editingRoom.electricCurr);
-      elecEl.innerHTML = `฿${elec} <span>(${units} units)</span>`;
+      elecEl.innerHTML = `₱${elec} <span>(${units} units)</span>`;
     }
 
     // Update total display
     const totalEl = document.getElementById("totalDisplay");
     if (totalEl) {
       const total = calcTotal(editingRoom);
-      totalEl.textContent = "฿" + parseFloat(total).toLocaleString();
+      totalEl.textContent = "₱" + parseFloat(total).toLocaleString();
     }
   },
 
